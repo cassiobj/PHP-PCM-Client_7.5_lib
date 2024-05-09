@@ -1,0 +1,20 @@
+PHP-PCM-Client
+
+Software Requirements
+Oracle Linux 7.5 to 7.9 with Connection Manager (Oracle BRM 7.5) and PCM libs installed.
+PHP 7.3 to 8.2
+Apache 2.4 (if you want to run PHP within a browser). I haven't tested it with Nginx, but I don't see any obstacles to using it.
+
+1 - Locate the PHP extensions directory: You need to find the directory where PHP extensions are stored. Typically, the default extensions directory is /usr/lib/php/extensions for Linux-based systems.
+2 - Copy the .so file to the PHP extensions directory: Copy the .so file of the extension to the PHP extensions directory. You may need superuser (sudo) privileges to do this, depending on the target directory.
+3 - Enable the extension in the PHP configuration file: To have PHP load the extension, you need to enable it in the PHP configuration file (php.ini). Add a line to the php.ini file that loads the extension. For example:
+ini
+
+Copy code
+
+extension=pcmm_client_<version>.so
+
+If youre running PHP under some web server.
+4 - Restart the web server or PHP-FPM: After making these changes, you'll need to restart the web server (such as Apache or Nginx) or PHP-FPM for the changes to take effect.
+Verify that the extension is loaded: After restarting the server, you can verify that the extension was loaded correctly using the php -m command to list all extensions loaded by PHP.
+Please note that the procedure may vary depending on the operating system and PHP installation you are using. Make sure to follow the specific instructions for your environment. Also, be cautious when installing extensions from untrusted sources as they may pose a security risk to your system.
