@@ -1,9 +1,15 @@
 PHP-PCM-Client
 
+Wiki for help
+https://github.com/cassiobj/PHP-PCM-Client_7.5_lib/wiki
+
 Software Requirements
 Oracle Linux 7.5 to 7.9 with Connection Manager (Oracle BRM 7.5) and PCM libs installed.
 PHP 7.3 to 8.2
 Apache 2.4 (if you want to run PHP within a browser). I haven't tested it with Nginx, but I don't see any obstacles to using it.
+
+
+Installation
 
 1 - Locate the PHP extensions directory: You need to find the directory where PHP extensions are stored. Typically, the default extensions directory is /usr/lib/php/extensions for Linux-based systems.
 2 - Copy the .so file to the PHP extensions directory: Copy the .so file of the extension to the PHP extensions directory. You may need superuser (sudo) privileges to do this, depending on the target directory.
