@@ -4,7 +4,7 @@ Wiki for help
 https://github.com/cassiobj/PHP-PCM-Client_7.5_lib/wiki
 
 Software Requirements
-Oracle Linux 7.5 to 7.9 with Connection Manager (Oracle BRM 7.5) and PCM libs installed.
+Oracle Linux 7.5 to 7.9 with Oracle BRM 7.5 and PCM libs installed.
 PHP 7.3 to 8.2
 Apache 2.4 (if you want to run PHP within a browser). I haven't tested it with Nginx, but I don't see any obstacles to using it.
 
