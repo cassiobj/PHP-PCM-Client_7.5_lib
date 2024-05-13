@@ -18,7 +18,7 @@ ini
 
 Copy code
 
-extension=pcmm_client_<version>.so
+extension=pcm_client_<version>.so
 
 If youre running PHP under some web server.
 4 - Restart the web server or PHP-FPM: After making these changes, you'll need to restart the web server (such as Apache or Nginx) or PHP-FPM for the changes to take effect.
