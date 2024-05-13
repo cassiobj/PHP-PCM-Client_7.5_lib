@@ -40,7 +40,7 @@ my $usage =
 "\nUsage: $me -I <input file> -O <output file>
         -h      help        
         -I      input file
-        -O      output file (or directory if L is pcmjava)
+        -O      output file 
         \n";	
 
 my $type_O_total = 0;
