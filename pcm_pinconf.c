@@ -1,3 +1,9 @@
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  PHP-PCM-Client-lib
+  PHP Extension interact with Oracle BRM
+  Copyright Cassio Jemael 2024
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
 
 #ifdef HAVE_CONFIG_H
 # include "config.h"
@@ -114,7 +120,7 @@ PHP_FUNCTION(pcm_pin_conf)
 
 		if (pcm_get_string_pin_conf(program_str, token_str, &retorno) == -1)
 		{
-			PIN_ERR_LOG_EBUF(PIN_ERR_LEVEL_ERROR, __PROGRAM__" pcm_pin_conf: error getting DECIMAL pin.conf information", &EBUF);
+			PIN_ERR_LOG_EBUF(PIN_ERR_LEVEL_ERROR, __PROGRAM__" pcm_pin_conf: error getting POID pin.conf information", &EBUF);
 			sprintf(msg, __PROGRAM__ " pcm_pin_conf: error getting DECIMAL pin.conf information "  );
 			zend_throw_exception(pcm_exception_ce, msg , (&EBUF)->pin_err);
         	RETURN_THROWS();

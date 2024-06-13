@@ -1,3 +1,10 @@
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  PHP-PCM-Client-lib
+  PHP Extension interact with Oracle BRM
+  Copyright Cassio Jemael 2024
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+
 #ifndef _PCM_STRUCTURE_FUNCTIONS
 #define _PCM_STRUCTURE_FUNCTIONS
 
