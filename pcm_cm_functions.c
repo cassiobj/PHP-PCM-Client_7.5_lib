@@ -101,7 +101,7 @@ PHP_FUNCTION(pcm_op)
 		c_flist = (char *) calloc ( (s_flist_entrada + 1), sizeof(char));
 		memset(c_flist, 0, (s_flist_entrada + 1));
 		//sprintf(c_flist, "0 PIN_FLD_POID           POID [0] 0.0.0.1 /bill 157240 0\n");
-		sprintf(c_flist, flist_entrada);
+		sprintf(c_flist, flist_entrada_str);
     } 
 	else if (Z_TYPE_P(flist_entrada) == IS_ARRAY) 
 	{
