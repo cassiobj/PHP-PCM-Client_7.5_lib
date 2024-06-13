@@ -1,10 +1,10 @@
 #!/opt/portal/ThirdParty/perl/5.18.2/bin/perl
 #
-#  PHP-PCM-Client Custom Fields and Opcodes converter.
+#  PHP-PCM-Client Custom Fields and Opcodes converter from original software parse_custom_ops_fdls.pl
+#  
+#  	
 #
-#	
-#
-# 		Copyright Cassio Jemael. All rights reserved.
+# 		Copyright Cassio Jemael. 
 #       
 
 
@@ -147,7 +147,7 @@ sub process_file {
 #            }
 #            push @$data_ref, \%record;
 #        } else {
-#            push @$errors_ref, "Erro: Formato inválido em $file - linha: $.";
+#            push @$errors_ref, "Erro: Formato invï¿½lido em $file - linha: $.";
 #        }
 #    }
 #    close $fh;

@@ -1,5 +1,8 @@
-/* This is a generated file, edit the .stub.php file instead.
- * Stub hash: efdd79c2c8ccff694699c86fdd6248a13839c744 */
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  PHP-PCM-Client-lib
+  Extension interact with Oracle BRM
+  Copyright Cassio Jemael 2024
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
 //#define str "str"
 
