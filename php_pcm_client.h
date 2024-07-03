@@ -1,4 +1,8 @@
-/* pcm_client extension for PHP */
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  PHP-PCM-Client-lib
+  PHP Extension interact with Oracle BRM
+  Copyright Cassio Jemael 2024
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
 #ifndef PHP_PCM_CLIENT_H
 # define PHP_PCM_CLIENT_H
