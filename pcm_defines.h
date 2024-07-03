@@ -1,11 +1,6 @@
 #ifndef PCM_DEFINES_H
 #define PCM_DEFINES_H
 
-/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-  PHP-PCM-Client-lib
-  PHP Extension interact with Oracle BRM
-  Copyright Cassio Jemael 2024
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
 
 #include <string.h>

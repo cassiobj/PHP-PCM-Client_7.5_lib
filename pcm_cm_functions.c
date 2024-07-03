@@ -18,6 +18,9 @@
 #include "zend_exceptions.h"
 #include "php_pcm_client.h"
 
+#include <zend_API.h>
+#include <zend_smart_str.h>
+
 #include "pcm_defines.h"
 
 PCM_ARRAY_CONN ARRAY_CONN[MAX_CONTEXT_CONN];
@@ -65,6 +68,7 @@ PHP_FUNCTION(pcm_op)
 	int opcode=0;
 	zend_long zopcode = 0;
 	zend_long zflag = 0;
+	zend_long zformat = 0;
 	long pcm_flag = 0;
 	char *flist_entrada_str;	
 	size_t s_flist_entrada;
@@ -80,12 +84,14 @@ PHP_FUNCTION(pcm_op)
 	pin_flist_t	*r_flistp = NULL;
 
 
-	ZEND_PARSE_PARAMETERS_START(2, 3)
+	ZEND_PARSE_PARAMETERS_START(2, 4)
 		Z_PARAM_LONG(zopcode);
 		//Z_PARAM_STRING(flist_entrada, s_flist_entrada);
 		Z_PARAM_ZVAL(flist_entrada);
 		Z_PARAM_OPTIONAL
 		Z_PARAM_LONG(zflag);
+		Z_PARAM_OPTIONAL
+		Z_PARAM_LONG(zformat);
 	ZEND_PARSE_PARAMETERS_END();
 
 	opcode = zopcode;
@@ -200,15 +206,60 @@ PHP_FUNCTION(pcm_op)
 		RETURN_NULL();
 	}
 
-	retorno = (char *) calloc ( (xml_buf.strsize + 1), sizeof(char));
-	memset(retorno, 0, (xml_buf.strsize + 1));
-	strncpy(retorno, xml_buf.strp, xml_buf.strsize);
-
-
 	PIN_FLIST_DESTROY_EX(&r_flistp, &EBUF);
 	PIN_FLIST_DESTROY_EX(&s_flistp, &EBUF);
 
-	RETURN_STRING( retorno );
+	if (zformat == 0)
+	{
+		retorno = (char *) calloc ( (xml_buf.strsize + 1), sizeof(char));
+		memset(retorno, 0, (xml_buf.strsize + 1));
+		strncpy(retorno, xml_buf.strp, xml_buf.strsize);
+
+
+	
+
+		RETURN_STRING( retorno );
+	}
+	if (zformat == 1)
+	{
+		 // Parse XML usando libxml2
+		xmlDocPtr doc;
+		xmlNodePtr root;
+		xmlKeepBlanksDefault(0); // Remove espaço em branco
+
+		doc = xmlReadMemory(xml_buf.strp, xml_buf.strsize, "noname.xml", NULL, 0);
+		if (doc == NULL) {
+			zend_throw_exception(pcm_exception_ce, "Failed to parse XML string", 0);
+			RETURN_THROWS();
+			RETURN_NULL();
+		}
+
+		root = xmlDocGetRootElement(doc);
+		if (root == NULL) {
+			xmlFreeDoc(doc);
+			zend_throw_exception(pcm_exception_ce, "Empty XML document", 0);
+			RETURN_THROWS();
+			RETURN_NULL();
+		}
+
+		// Convertendo XML para array associativo
+		zval retval;
+		array_init(&retval);
+
+		// Função recursiva para converter nodes XML em array PHP
+		xmlNodeToPHPArray(root, &retval);
+
+		// Libera memória utilizada pelo documento XML
+		xmlFreeDoc(doc);
+
+		
+		// Retornando o array associativo
+		RETURN_ZVAL(&retval, 0, 1);
+	}
+	else
+	{
+		RETURN_NULL();
+	}
 
 }
 /* }}} */
