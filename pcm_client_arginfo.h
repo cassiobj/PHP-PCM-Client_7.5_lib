@@ -23,6 +23,8 @@ ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO(arginfo_pcm_op, 0)
     ZEND_ARG_INFO(0, opcode)
 	ZEND_ARG_INFO(0, flist)
+//	ZEND_ARG_INFO(0, flag)
+//	ZEND_ARG_INFO(0, format)
 ZEND_END_ARG_INFO()
 
 

@@ -11,6 +11,18 @@ $totSucessos = 0;
 $totTeste=0;
 
 
+function displaySimpleXMLElement($element, $indent = 0) {
+    $indentation = str_repeat(" ", $indent);
+    foreach ($element as $key => $value) {
+        if ($value->count()) {
+            echo "{$indentation}{$key}:\n";
+            displaySimpleXMLElement($value, $indent + 2);
+        } else {
+            echo "{$indentation}{$key}: {$value}\n";
+        }
+    }
+}
+
 $custom_fld = "C_FLD_CHARGE_PENALTY_EXEMPT_FLAG";
 $custom_opcode = "C_OP_COLLECTIONS_POL_EXIT_CREDIT_INSTALLMENT";
 
@@ -38,7 +50,7 @@ echo "\n";
 
 
 // test reading
-echo "|Testing Reading                          |";
+echo "|Testing Reading XML                      |";
 if ( ($xml_invoice = pcm_op(PCM_OP_READ_OBJ, $flist_invoice, PCM_OPFLG_NO_DESCEND)) != NULL)
 {
     echo "OK    |";
@@ -48,6 +60,21 @@ else
 
 echo "\n";
 echo $xml_invoice;
+echo "";
+
+
+// test reading
+echo "|Testing Reading ARRAY                    |";
+if ( ($array = pcm_op(PCM_OP_READ_OBJ, $flist_invoice, PCM_OPFLG_NO_DESCEND, 1)) != NULL)
+{
+    echo "OK    |";
+}
+else
+    echo     "Error |";
+
+echo "\n";
+print_r($array);
+
 echo "";
 
 // test change context

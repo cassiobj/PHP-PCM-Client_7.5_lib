@@ -605,3 +605,37 @@ long int findReg(char *source, char *item,unsigned long start,long end, int regL
       return (findReg(source,item,mid,end,regLen,itemLen));
   return -1;
 }
+
+
+// Função recursiva para converter nodes XML em array PHP
+void xmlNodeToPHPArray(xmlNodePtr node, zval *retval) {
+    xmlNodePtr cur_node = NULL;
+
+    for (cur_node = node; cur_node; cur_node = cur_node->next) {
+        if (cur_node->type == XML_ELEMENT_NODE) {
+            zval child;
+            array_init(&child);
+
+            // Adiciona atributos como chaves no array
+            xmlAttrPtr attr = cur_node->properties;
+            while (attr) {
+                xmlChar *value = xmlNodeListGetString(cur_node->doc, attr->children, 1);
+                add_assoc_string(&child, (char *) attr->name, (char *) value);
+                xmlFree(value);
+                attr = attr->next;
+            }
+
+            // Adiciona conteúdo do elemento como valor associado à chave "__value__"
+            xmlChar *content = xmlNodeListGetString(cur_node->doc, cur_node->children, 1);
+            if (content && xmlStrlen(content) > 0) {
+                add_assoc_string(&child, "__value__", (char *) content);
+            }
+
+            // Recursivamente processa os filhos do node
+            xmlNodeToPHPArray(cur_node->children, &child);
+
+            // Adiciona ao array principal, usando o nome do elemento como chave
+            add_assoc_zval(retval, (char *) cur_node->name, &child);
+        }
+    }
+}
